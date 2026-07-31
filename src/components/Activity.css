@@ -1,0 +1,110 @@
+/* src/components/Activity.css */
+.activity-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.view-all-button {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.view-all-button:hover {
+  background-color: #f5f3ff;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.timeline-connector {
+  flex: 1;
+  width: 2px;
+  background-color: #e5e7eb;
+  margin-top: 4px;
+  min-height: 20px;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-top: 6px;
+}
+
+.timeline-text {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 0 0 4px 0;
+  line-height: 1.5;
+}
+
+.timeline-text strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.timeline-target {
+  color: #4f46e5;
+  font-weight: 500;
+}
+
+.timeline-time {
+  font-size: 12px;
+  color: #9ca3af;
+}
