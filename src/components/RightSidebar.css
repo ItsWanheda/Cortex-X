@@ -1,0 +1,379 @@
+/* src/components/RightSidebar.css */
+.right-sidebar {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 97px;
+  align-self: flex-start;
+  max-height: calc(100vh - 113px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.right-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.right-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.right-sidebar::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+.right-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.notification-count {
+  background-color: #4f46e5;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+/* Mini Calendar */
+.mini-calendar {
+  margin-top: 16px;
+}
+
+.calendar-header-info {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+
+.calendar-month {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.calendar-year {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ca3af;
+  padding: 4px 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #4b5563;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.calendar-day.empty {
+  cursor: default;
+}
+
+.calendar-day:not(.empty):hover {
+  background-color: #f5f3ff;
+  color: #4f46e5;
+}
+
+.calendar-day.today {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
+  font-weight: 700;
+}
+
+.calendar-day.selected {
+  background-color: #ede9fe;
+  color: #4f46e5;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 2px #4f46e5;
+}
+
+.no-meetings {
+  font-size: 12.5px;
+  color: #9ca3af;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.calendar-day.has-event:not(.today)::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #4f46e5;
+}
+
+/* Meetings */
+.meetings-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.meeting-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.meeting-item:hover {
+  background-color: #f5f3ff;
+}
+
+.meeting-time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  min-width: 64px;
+}
+
+.meeting-time {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.meeting-date {
+  font-size: 10px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.meeting-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.meeting-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meeting-participants {
+  display: flex;
+}
+
+.participant-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #4f46e5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  border: 2px solid white;
+  margin-left: -6px;
+}
+
+.participant-avatar:first-child {
+  margin-left: 0;
+}
+
+.participant-avatar.more {
+  background-color: #e5e7eb;
+  color: #6b7280;
+}
+
+.join-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  font-size: 14px;
+}
+
+.join-button:hover {
+  transform: scale(1.1);
+}
+
+.join-button.joined {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+/* Notifications */
+.notifications-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.notification-item:hover {
+  background-color: #f9fafb;
+}
+
+.notification-item.read {
+  opacity: 0.5;
+}
+
+.clear-all-button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 9px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-all-button:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+  background-color: #fef2f2;
+}
+
+.notification-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.notification-icon.comment {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.notification-icon.mention {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.notification-icon.alert {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.notification-icon.info {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-title {
+  font-size: 13px;
+  color: #374151;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notification-time {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+  display: block;
+}
+
+@media (max-width: 1280px) {
+  .right-sidebar {
+    width: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .right-sidebar {
+    display: none;
+  }
+}
