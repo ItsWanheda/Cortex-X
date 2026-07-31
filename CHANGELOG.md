@@ -35,5 +35,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation: `README.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`,
   `SECURITY.md`, GitHub issue/PR templates.
 
-[Unreleased]: https://github.com/your-org/your-repo/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/your-org/your-repo/releases/tag/v1.0.0
+[Unreleased]: https://github.com/ItsWanheda/your-repo/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/ItsWanheda/your-repo/releases/tag/v1.0.0
