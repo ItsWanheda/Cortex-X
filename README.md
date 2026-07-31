@@ -1,4 +1,4 @@
-# 📊 Nexus-Dashboard
+# 📊 Cortex-X
 
 A polished admin dashboard UI — **now fully wired up on the client side.**
 Every button, form, tab, and toggle you see actually does something. There's
@@ -45,7 +45,7 @@ Other available scripts:
 ## Project structure
 
 ```
-Nexus-Dashboard/
+Cortex-X/
 ├── index.html                  # Vite entry HTML
 ├── package.json
 ├── vite.config.js
