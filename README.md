@@ -1,65 +1,85 @@
 # 📊 Cortex-X
 
-A polished admin dashboard UI — **now fully wired up on the client side.**
-Every button, form, tab, and toggle you see actually does something. There's
-no backend here; all state lives in React (`useState`), which is what
-"interactive" means for a project at this stage. Swapping in a real API
-later is just a matter of replacing the mock data and state setters.
+> A polished admin dashboard UI — **now fully wired up on the client side.**
+
+Every button, form, tab, and toggle you see actually does something. There’s no backend here; all state lives in React (`useState`), which is what **“interactive”** means for a project at this stage.
+
+Swapping in a real API later is just a matter of replacing the mock data and state setters.
 
 ---
 
-## Table of contents
+## 📚 Table of Contents
 
-- [Quick start](#quick-start)
-- [Project structure](#project-structure)
-- [What was missing](#what-was-missing)
-- [What's interactive now](#whats-interactive-now)
-- [Tech stack](#tech-stack)
-- [Known limitations](#known-limitations)
+* [Quick Start](#-quick-start)
+* [Project Structure](#-project-structure)
+* [What Was Missing](#-what-was-missing)
+* [What’s Interactive Now](#-whats-interactive-now)
+
+  * [Header](#-header)
+  * [Sidebar](#-sidebar)
+  * [Quick Actions](#-quick-actions)
+  * [Revenue Chart](#-revenue-chart)
+  * [Projects Table](#-projects-table)
+  * [Task List](#-task-list)
+  * [Team Members](#-team-members)
+  * [Calendar](#-calendar-right-sidebar)
+  * [Toasts](#-toasts)
+* [Tech Stack](#-tech-stack)
+* [Known Limitations](#-known-limitations)
 
 ---
 
-## Quick start
+## 🚀 Quick Start
+
+### 1. Install dependencies
 
 ```bash
 npm install
+```
+
+### 2. Start the development server
+
+```bash
 npm run dev
 ```
 
 Then open the URL Vite prints in your terminal — usually:
 
-```
+```text
 http://localhost:5173
 ```
 
-Other available scripts:
+### Available Scripts
 
-| Command           | What it does                              |
-|-------------------|--------------------------------------------|
+| Command           | What it does                                |
+| ----------------- | ------------------------------------------- |
 | `npm run dev`     | Starts the local dev server with hot reload |
-| `npm run build`   | Builds a production bundle into `dist/`    |
-| `npm run preview` | Serves the production build locally        |
+| `npm run build`   | Builds a production bundle into `dist/`     |
+| `npm run preview` | Serves the production build locally         |
 
 ---
 
-## Project structure
+## 📁 Project Structure
 
-```
+```text
 Cortex-X/
-├── index.html                  # Vite entry HTML
+├── index.html                       # Vite entry HTML
 ├── package.json
 ├── vite.config.js
 ├── public/
 └── src/
-    ├── index.jsx                # React root
-    ├── App.jsx                  # Layout owner: header, sidebar, routing, shared state
+    ├── index.jsx                    # React root
+    ├── App.jsx                      # Layout owner: header, sidebar, routing, shared state
+    │
     ├── data/
-    │   └── mockData.js          # Sample data (projects, tasks, team, etc.)
+    │   └── mockData.js              # Sample data (projects, tasks, team, etc.)
+    │
     ├── pages/
-    │   ├── Dashboard.jsx        # Main dashboard page content
+    │   ├── Dashboard.jsx            # Main dashboard page content
     │   ├── Dashboard.css
-    │   ├── Placeholder.jsx      # Stub page for non-dashboard nav items
+    │   ├── Placeholder.jsx           # Stub page for non-dashboard nav items
     │   └── Placeholder.css
+    │
     └── components/
         ├── Header.jsx / .css        # Search, notifications, user menu
         ├── Sidebar.jsx / .css       # Left nav
@@ -75,73 +95,126 @@ Cortex-X/
 
 ---
 
-## What was missing
+## ⚠️ What Was Missing
 
-**`src/data/mockData.js`**
+### `src/data/mockData.js`
 
-`Dashboard.jsx` imported this file, but it was never included in the
-original upload — so the app couldn't actually run before. It's now filled
-in with realistic sample data for projects, tasks, team members, meetings,
-and notifications.
+`Dashboard.jsx` imported this file, but it was never included in the original upload — so the app couldn’t actually run before.
 
----
+It’s now filled in with realistic sample data for:
 
-## What's interactive now
-
-### 🔍 Header
-| Feature | Behavior |
-|---|---|
-| **Search** | Live-filters projects, tasks, and people as you type. Results are grouped in a dropdown. |
-| **Notifications bell** | Opens a dropdown of notifications. Shares state with the right sidebar panel, so marking one read (or "Mark all read") updates both places, and the badge count updates live. |
-| **User menu** | Click the avatar for Profile / Settings / Log out. Log out actually navigates away and back. |
-
-### 🧭 Sidebar
-- Every nav item is clickable and highlights correctly.
-- Non-dashboard pages (Analytics, Projects, etc.) render a clean stub page instead of doing nothing, so navigation never feels dead.
-
-### ⚡ Quick actions
-| Button | Behavior |
-|---|---|
-| **Create Project** | Opens a form; new project appears at the top of the Projects table. |
-| **Invite Member** | Opens a form; new member appears in the Team list. |
-| **Generate Report** | Downloads a real `.csv` snapshot of current stats and projects. |
-
-### 📈 Revenue chart
-- Monthly / Weekly / Daily tabs swap in real, different chart data — not just a style change.
-
-### 📋 Projects table
-- Click a column header to sort (name, status, progress, due date).
-- Click a row to open a detail modal, including a delete action.
-
-### ✅ Task list
-- Check off seeded tasks, and add your own new ones.
-
-### 👥 Team members
-- The message icon opens a mock chat modal, complete with a fake auto-reply after you send something.
-
-### 📅 Calendar (right sidebar)
-- Click any day to see meetings scheduled for that day.
-- The **Join** button toggles a "joined" state and fires a confirmation toast.
-
-### 🔔 Toasts
-- A lightweight toast system (`Toast.jsx`) confirms actions across the app — project created, invite sent, report generated, and more.
+* Projects
+* Tasks
+* Team members
+* Meetings
+* Notifications
 
 ---
 
-## Tech stack
+# ⚡ What’s Interactive Now
 
-- **React 18** — UI and state management
-- **Vite** — dev server and build tooling
-- **react-icons** — icon set (Feather icons)
-- Plain CSS (no framework) — kept 1:1 with the original design system
+## 🔍 Header
+
+| Feature                | Behavior                                                                                                                                                                          |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Search**             | Live-filters projects, tasks, and people as you type. Results are grouped in a dropdown.                                                                                          |
+| **Notifications bell** | Opens a dropdown of notifications. Shares state with the right sidebar panel, so marking one read (or **“Mark all read”**) updates both places, and the badge count updates live. |
+| **User menu**          | Click the avatar for **Profile / Settings / Log out**. Log out actually navigates away and back.                                                                                  |
 
 ---
 
-## Known limitations
+## 🧭 Sidebar
 
-- **No persistence.** Everything is in-memory; refreshing the page resets all state, since there's no backend or storage layer.
-- **No real backend.** Forms, chat, and report generation are all simulated client-side — there's nowhere for the data to actually go.
-- **Single real page.** Only "Dashboard" has full content; other sidebar destinations are intentional stubs.
+* Every nav item is clickable and highlights correctly.
+* Non-dashboard pages (**Analytics, Projects, etc.**) render a clean stub page instead of doing nothing, so navigation never feels dead.
 
-Component structure and CSS class names were kept as close to the original
-as possible, so this should feel like the same codebase — just switched on.
+---
+
+## ⚡ Quick Actions
+
+| Button              | Behavior                                                            |
+| ------------------- | ------------------------------------------------------------------- |
+| **Create Project**  | Opens a form; new project appears at the top of the Projects table. |
+| **Invite Member**   | Opens a form; new member appears in the Team list.                  |
+| **Generate Report** | Downloads a real `.csv` snapshot of current stats and projects.     |
+
+---
+
+## 📈 Revenue Chart
+
+* **Monthly / Weekly / Daily** tabs swap in real, different chart data — not just a style change.
+
+---
+
+## 📋 Projects Table
+
+* Click a column header to sort:
+
+  * Name
+  * Status
+  * Progress
+  * Due date
+* Click a row to open a detail modal, including a **delete action**.
+
+---
+
+## ✅ Task List
+
+* Check off seeded tasks.
+* Add your own new tasks.
+
+---
+
+## 👥 Team Members
+
+* The message icon opens a mock chat modal.
+* The chat includes a fake auto-reply after you send something.
+
+---
+
+## 📅 Calendar — Right Sidebar
+
+* Click any day to see meetings scheduled for that day.
+* The **Join** button toggles a **“joined”** state and fires a confirmation toast.
+
+---
+
+## 🔔 Toasts
+
+A lightweight toast system (`Toast.jsx`) confirms actions across the app, including:
+
+* Project created
+* Invite sent
+* Report generated
+* And more
+
+---
+
+# 🛠️ Tech Stack
+
+* **React 18** — UI and state management
+* **Vite** — dev server and build tooling
+* **react-icons** — icon set (Feather icons)
+* **Plain CSS** *(no framework)* — kept 1:1 with the original design system
+
+---
+
+# ⚠️ Known Limitations
+
+### 💾 No Persistence
+
+Everything is in-memory; refreshing the page resets all state, since there’s no backend or storage layer.
+
+### 🌐 No Real Backend
+
+Forms, chat, and report generation are all simulated client-side — there’s nowhere for the data to actually go.
+
+### 📄 Single Real Page
+
+Only **Dashboard** has full content; other sidebar destinations are intentional stubs.
+
+---
+
+## 📝 Final Note
+
+Component structure and CSS class names were kept as close to the original as possible, so this should feel like the same codebase — **just switched on.**
