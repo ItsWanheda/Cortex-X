@@ -119,7 +119,7 @@ const Dashboard = ({
     addToast(`Invite sent to ${newMember.name}`, "success");
   };
 
-  const handleGenerateReport = () => {
+  const handleGenerateJsonReport = () => {\n    const report = {\n      generatedAt: new Date().toISOString(),\n      stats: statsData.map((stat) => ({\n        metric: stat.title,\n        value: stat.value,\n      })),\n      projects: projects.map((project) => ({\n        name: project.name,\n        status: project.status,\n        progress: project.progress,\n        dueDate: project.dueDate,\n      })),\n    };\n\n    const blob = new Blob([JSON.stringify(report, null, 2)], {\n      type: "application/json",\n    });\n    const url = URL.createObjectURL(blob);\n    const link = document.createElement("a");\n    link.href = url;\n    link.download = "dashboard-report.json";\n    link.click();\n    URL.revokeObjectURL(url);\n    addToast("JSON report generated and downloaded", "success");\n  };\n\n  const handleGenerateReport = () => {
     const rows = [
       ["Metric", "Value"],
       ...statsData.map((s) => [s.title, s.value]),
